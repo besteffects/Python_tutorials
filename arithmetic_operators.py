@@ -90,4 +90,4 @@ NameError: name 'seConds_IN_Minute' is not defined
 60
 >>> hour's=7
 SyntaxError: EOL while scanning string literal
->>> 
+>>> X=1
