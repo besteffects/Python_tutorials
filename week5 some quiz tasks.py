@@ -68,3 +68,25 @@ def for_version(L):
         else:
             found_even = True 
     return total
+
+def cap_song_repetition(playlist, song):
+    '''(list of str, str) -> NoneType
+
+    Make sure there are no more than 3 occurrences of song in playlist.
+    >>> cap_song_repetition(['Lola','Venus','Lola','Lola','LetItBe','Lola','ABC','Cecilia','Lola','Lola'], 'Lola')
+    >>>['Venus', 'LetItBe', 'Lola', 'ABC', 'Cecilia', 'Lola', 'Lola']
+    '''
+    while playlist.count(song) > 3:
+        playlist.pop(playlist.index(song))
+    return playlist
+
+def cap_song_repetition_remove(playlist, song):
+    '''(list of str, str) -> NoneType
+
+    Make sure there are no more than 3 occurrences of song in playlist.
+    >>> cap_song_repetition_remove(['Lola','Venus','Lola','Lola','LetItBe','Lola','ABC','Cecilia','Lola','Lola'], 'Lola')
+    >>>'Lola','Venus','Lola','LetItBe','Lola','ABC','Cecilia'
+    '''
+    while playlist.count(song) >= 3:
+        playlist.remove(song)
+    return playlist
