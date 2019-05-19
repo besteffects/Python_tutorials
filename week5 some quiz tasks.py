@@ -80,13 +80,57 @@ def cap_song_repetition(playlist, song):
         playlist.pop(playlist.index(song))
     return playlist
 
+#Only 2 occurences will be returned
 def cap_song_repetition_remove(playlist, song):
     '''(list of str, str) -> NoneType
 
     Make sure there are no more than 3 occurrences of song in playlist.
     >>> cap_song_repetition_remove(['Lola','Venus','Lola','Lola','LetItBe','Lola','ABC','Cecilia','Lola','Lola'], 'Lola')
-    >>>'Lola','Venus','Lola','LetItBe','Lola','ABC','Cecilia'
+    >>>['Venus', 'LetItBe', 'ABC', 'Cecilia', 'Lola', 'Lola']
     '''
     while playlist.count(song) >= 3:
         playlist.remove(song)
     return playlist
+
+#this will return exception ValueError: list.remove(x): x not in list
+def cap_song_repetition_remove_incorrect1 (playlist, song):
+    '''(list of str, str) -> NoneType
+
+    Make sure there are no more than 3 occurrences of song in playlist.
+    >>> cap_song_repetition_remove(['Lola','Venus','Lola','Lola','LetItBe','Lola','ABC','Cecilia','Lola','Lola'], 'Lola')
+    '''
+    while playlist.count(song) > 3:
+        playlist.remove(playlist.index(song))
+    return playlist
+
+# 3 occurences returned
+def cap_song_repetition_remove_case2(playlist, song):
+    '''(list of str, str) -> NoneType
+
+    Make sure there are no more than 3 occurrences of song in playlist.
+
+    >>> cap_song_repetition_remove_incorrect1(['Lola','Venus','Lola','Lola','LetItBe','Lola','ABC','Cecilia','Lola','Lola'], 'Lola')
+    >>> ['Venus', 'LetItBe', 'Lola', 'ABC', 'Cecilia', 'Lola', 'Lola']
+    '''
+    while playlist.count(song) > 3:
+        playlist.remove(song)
+    return playlist
+
+    
+   # What is printed by the program?
+   # Answer: 
+   # None (because there is no return statement)
+   # [3,4,5]
+def increment_items(L, increment):
+    i = 0
+    while i < len(L):
+        L[i] = L[i] + increment
+        i = i + 1
+values = [1, 2, 3]
+print(increment_items(values, 2))
+print(values)
+
+values = []
+for num in range(3, 10, 3):
+    values.append(num)
+print(values)

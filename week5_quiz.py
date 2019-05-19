@@ -1,3 +1,4 @@
+# 2 Select the function call(s) that result in an error.
 def mystery(s):
     i = 0
     result = ''
@@ -17,6 +18,17 @@ def example(L):
         result.append(L[i])
         i = i + 3
     return result
+
+def secret(s):
+    i = 0
+    result = ''
+
+    while s[i].isdigit():
+        result = result + s[i]
+        i = i + 1
+   
+    return result
+#answer secret('123'). IndexError: string index out of range
 
 def compress_list(L):
     """ (list of str) -> list of str
@@ -48,17 +60,16 @@ print it. Then copy and paste that sum.
 For maximum learning, do it with a for loop as well, using range.
 >>> oddnumber_sum(10503)
 """
-def oddnumber_sum(final_number):
-    added_number=1523
+def oddnumber_sum(added_number, final_number):
     total=0
     while added_number <=final_number:
         total=total+added_number
         added_number=added_number+2
     print(total)
 
-def oddnumber_sum_range(final_number):
+def oddnumber_sum_range(first_number, final_number):
     total=0
-    for i in range(1523, final_number, 2):
+    for i in range(first_number, final_number, 2):
         total=total+i
     print(total)
     # final_number is 10504 for this case
